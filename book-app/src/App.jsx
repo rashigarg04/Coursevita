@@ -1,9 +1,12 @@
+import BookList from "./components/BookList";
+
 function App() {
   return (
-    <>
-      <h6 className="text-blue-500 text-6xl">hello skillvita</h6>
-    </>
-  )
+    <div>
+      <h1>My Book App</h1>
+      <BookList />
+    </div>
+  );
 }
 
-export default App
+export default App;
