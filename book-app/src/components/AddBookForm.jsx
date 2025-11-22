@@ -7,7 +7,7 @@ function AddBookForm({ onBookAdded }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:5000/api/books", { name })
+    axios.post("http://localhost:5000/books", { name })   // <-- FIXED URL
       .then(response => {
         onBookAdded();  // Refresh book list
         setName("");
@@ -19,22 +19,21 @@ function AddBookForm({ onBookAdded }) {
 
   return (
     <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
-  <input
-    type="text"
-    placeholder="Enter book name"
-    value={name}
-    onChange={(e) => setName(e.target.value)}
-    required
-    className="flex-1 border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-  />
-  <button
-    type="submit"
-    className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition"
-  >
-    Add
-  </button>
-</form>
-
+      <input
+        type="text"
+        placeholder="Enter book name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        required
+        className="flex-1 border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      />
+      <button
+        type="submit"
+        className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition"
+      >
+        Add
+      </button>
+    </form>
   );
 }
 
