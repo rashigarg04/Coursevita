@@ -5,10 +5,15 @@ export default function BookList() {
   const [books, setBooks] = useState([]);
 
   const fetchBooks = async () => {
-    const res = await fetch("http://localhost:5000/api/books");
-    const data = await res.json();
+  try {
+    const response = await fetch("http://localhost:5000/api/books")
+    const data = await response.json();
     setBooks(data);
-  };
+  } catch (error) {
+    console.error("Error fetching books:", error);
+  }
+};
+
 
   useEffect(() => {
     fetchBooks();
